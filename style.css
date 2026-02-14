@@ -66,6 +66,7 @@ body {
 }
 
 .card {
+    position: relative;
     background: rgba(255,255,255,0.92);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -77,6 +78,8 @@ body {
         0 0 0 1px rgba(255,107,157,0.12);
     max-width: 420px;
     width: 100%;
+    min-height: 380px;
+    overflow: hidden;
     animation: cardIn 0.5s ease-out both;
 }
 
@@ -181,11 +184,18 @@ body {
     background: linear-gradient(135deg, #cfd8dc 0%, #b0bec5 100%);
     color: #fff;
     box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-    transition: transform 0.2s ease, padding 0.2s ease, font-size 0.2s ease;
+    transition: transform 0.15s ease, left 0.15s ease, top 0.15s ease;
 }
 
 .btn-no:hover {
     background: linear-gradient(135deg, #b0bec5 0%, #90a4ae 100%);
+}
+
+/* Dodging state for No button */
+.btn-no.dodging {
+    position: absolute;
+    z-index: 20;
+    transition: left 0s, top 0s;
 }
 
 /* === Responsive === */

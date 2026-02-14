@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories 💕</title>
+    <meta name="description" content="A little trip down memory lane">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="memories.css">
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <div class="hero-content">
+            <p class="hero-sub">A little game for you</p>
+            <h1 class="hero-title">Guess Kaha Ka Hai Ye? 🤔💕</h1>
+            <p class="hero-desc">Swipe through our memories. <br>Can you remember where & when each one was?</p>
+            <a href="#card-0" class="hero-cta">Let's Play ↓</a>
+        </div>
+        <div class="hero-hearts" aria-hidden="true"></div>
+    </header>
+
+    <!-- ===== PHOTO CARDS ===== -->
+    <main class="game-area">
+
+        <!-- Card 0 – First Meet -->
+        <section class="memory-card" id="card-0">
+            <div class="card-inner">
+                <span class="card-number">0</span>
+                <div class="photo-frame photo-frame--placeholder">
+                    <!-- No photo — memory placeholder -->
+                    <div class="no-photo-art">
+                        <span class="no-photo-emoji">🫶</span>
+                        <p>No pics… but still fresh in memory</p>
+                    </div>
+                </div>
+                <h2 class="card-question">Guess kaha ka hai ye? 🤔</h2>
+                <p class="card-hint">Hint: Where it all started…</p>
+                <button class="reveal-btn" onclick="reveal(this)">Reveal ✨</button>
+                <div class="reveal-content">
+                    <div class="reveal-tag">📍 First Meet</div>
+                    <div class="reveal-date">📅 February 2024</div>
+                    <p class="reveal-caption">The day everything changed. The first time we met — no camera, but every second is etched in memory. 💕</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 1 – Galleria -->
+        <section class="memory-card" id="card-1">
+            <div class="card-inner">
+                <span class="card-number">1</span>
+                <div class="photo-frame">
+                    <img src="assets/photos/photo1.jpg" alt="Memory 1" class="photo"
+                         onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>📸 Photo 1</div>'">
+                </div>
+                <h2 class="card-question">Guess kaha ka hai ye? 🤔</h2>
+                <button class="reveal-btn" onclick="reveal(this)">Reveal ✨</button>
+                <div class="reveal-content">
+                    <div class="reveal-tag">📍 Galleria</div>
+                    <div class="reveal-date">📅 November 18, 2024</div>
+                    <p class="reveal-caption">Shopping, walking, laughing — just us being us at Galleria. 🛍️✨</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 2 – Movie Time -->
+        <section class="memory-card" id="card-2">
+            <div class="card-inner">
+                <span class="card-number">2</span>
+                <div class="photo-frame">
+                    <img src="assets/photos/photo2.jpg" alt="Memory 2" class="photo"
+                         onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>📸 Photo 2</div>'">
+                </div>
+                <h2 class="card-question">Guess kaha ka hai ye? 🤔</h2>
+                <p class="card-hint">Hint: 🍿</p>
+                <button class="reveal-btn" onclick="reveal(this)">Reveal ✨</button>
+                <div class="reveal-content">
+                    <div class="reveal-tag">📍 Movie Time 🎬</div>
+                    <div class="reveal-date">📅 November 23, 2024</div>
+                    <p class="reveal-caption">Popcorn, dark theatre, your hand in mine. Does it get better? 🍿💖</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 3 – Konark Trip -->
+        <section class="memory-card" id="card-3">
+            <div class="card-inner">
+                <span class="card-number">3</span>
+                <div class="photo-frame">
+                    <img src="assets/photos/photo3.jpg" alt="Memory 3" class="photo"
+                         onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>📸 Photo 3</div>'">
+                </div>
+                <h2 class="card-question">Guess kaha ka hai ye? 🤔</h2>
+                <p class="card-hint">Hint: Ancient temples & salty breeze ☀️</p>
+                <button class="reveal-btn" onclick="reveal(this)">Reveal ✨</button>
+                <div class="reveal-content">
+                    <div class="reveal-tag">📍 Konark Trip 🛕</div>
+                    <div class="reveal-date">📅 November 2024</div>
+                    <p class="reveal-caption">Our first trip together! Sun temple, the beach, and memories for a lifetime. 🌊☀️</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 4 – Kisses in Restaurant -->
+        <section class="memory-card" id="card-4">
+            <div class="card-inner">
+                <span class="card-number">4</span>
+                <div class="photo-frame">
+                    <img src="assets/photos/photo4.jpg" alt="Memory 4" class="photo"
+                         onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>📸 Photo 4</div>'">
+                </div>
+                <h2 class="card-question">Guess kaha ka hai ye? 🤔</h2>
+                <p class="card-hint">Hint: Good food, better company 😘</p>
+                <button class="reveal-btn" onclick="reveal(this)">Reveal ✨</button>
+                <div class="reveal-content">
+                    <div class="reveal-tag">📍 Restaurant 🍽️</div>
+                    <div class="reveal-date">📅 May 1, 2025</div>
+                    <p class="reveal-caption">Stolen kisses between bites. Best meal ever? Definitely. 😘💕</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 5 – Mirror Selfie -->
+        <section class="memory-card" id="card-5">
+            <div class="card-inner">
+                <span class="card-number">5</span>
+                <div class="photo-frame">
+                    <img src="assets/photos/photo5.jpg" alt="Memory 5" class="photo"
+                         onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>📸 Photo 5</div>'">
+                </div>
+                <h2 class="card-question">Guess kaha ka hai ye? 🤔</h2>
+                <p class="card-hint">Hint: 🪞📸</p>
+                <button class="reveal-btn" onclick="reveal(this)">Reveal ✨</button>
+                <div class="reveal-content">
+                    <div class="reveal-tag">📍 Jagmara</div>
+                    <div class="reveal-date">📅 Mirror Selfie Time 🪞</div>
+                    <p class="reveal-caption">Just two cuties being cute. Classic us. 🤳💖</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== SCORE / END ===== -->
+    <footer class="ending">
+        <div class="ending-content">
+            <h2 class="ending-title">Every moment with you is my favourite 💖</h2>
+            <p class="ending-sub">Here's to making a thousand more memories… 🥂</p>
+        </div>
+    </footer>
+
+    <script src="memories.js"></script>
+</body>
+</html>

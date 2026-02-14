@@ -1,8 +1,8 @@
 /**
  * Valentine Proposal – Script
  * ============================
- * ▸ "No" button shrinks + text changes each click
- * ▸ "Yes" button grows each time "No" is pressed
+ * ▸ "No" button dodges away on hover
+ * ▸ "Yes" button grows each time "No" is hovered
  * ▸ Clicking "Yes" shows celebration with confetti
  */
 
@@ -28,36 +28,68 @@ const noTexts = [
     "You're breaking my heart 💔",
 ];
 
-// ── "No" handler ──
-function onNoClick() {
+// ── Set up "No" button dodge on hover ──
+document.addEventListener("DOMContentLoaded", () => {
+    const noBtn  = document.getElementById("no-btn");
+    const yesBtn = document.getElementById("yes-btn");
+
+    noBtn.addEventListener("mouseenter", handleNoDodge);
+
+    // Also handle touch for mobile
+    noBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        handleNoDodge();
+    });
+});
+
+function handleNoDodge() {
     noCount++;
     const noBtn  = document.getElementById("no-btn");
     const yesBtn = document.getElementById("yes-btn");
+    const card   = document.querySelector(".card");
 
     // Update No button text
     const idx = Math.min(noCount, noTexts.length - 1);
     noBtn.textContent = noTexts[idx];
 
-    // Shrink No button
-    const noScale  = Math.max(0.45, 1 - noCount * 0.07);
-    noBtn.style.transform = `scale(${noScale})`;
+    // Move No button to a random position within the card
+    const cardRect = card.getBoundingClientRect();
+    const btnRect  = noBtn.getBoundingClientRect();
+
+    // Calculate safe bounds (keep button inside the card with padding)
+    const padding = 20;
+    const maxX = cardRect.width - btnRect.width - padding * 2;
+    const maxY = cardRect.height - btnRect.height - padding * 2;
+
+    const randX = Math.random() * maxX + padding;
+    const randY = Math.random() * maxY + padding;
+
+    // Switch to absolute positioning inside card
+    noBtn.classList.add("dodging");
+    noBtn.style.left = randX + "px";
+    noBtn.style.top  = randY + "px";
 
     // Grow Yes button so it gets irresistible
-    const yesScale = 1 + noCount * 0.15;
-    const capScale = Math.min(yesScale, 2.4);
+    const yesScale = 1 + noCount * 0.12;
+    const capScale = Math.min(yesScale, 2.2);
     yesBtn.style.transform = `scale(${capScale})`;
     yesBtn.style.boxShadow = `0 ${6 + noCount * 2}px ${22 + noCount * 4}px rgba(233,30,99,${Math.min(0.35 + noCount * 0.04, 0.7)})`;
 
-    // After a few clicks, add a pleading text
-    if (noCount >= 4) {
+    // After a few hovers, add a pleading text
+    if (noCount >= 3) {
         document.getElementById("main-text").textContent = "Please? 🥺💕";
     }
-    if (noCount >= 8) {
+    if (noCount >= 6) {
         document.getElementById("main-text").textContent = "I won't stop asking 😤💕";
     }
-    if (noCount >= 12) {
+    if (noCount >= 10) {
         document.getElementById("main-text").textContent = "Just say YES already! 😭💖";
     }
+}
+
+// ── "No" click does nothing now (dodge handles it) ──
+function onNoClick() {
+    // No-op: the dodge on hover handles everything
 }
 
 // ── "Yes" handler ──
