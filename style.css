@@ -1,0 +1,208 @@
+/* === Reset & Base === */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff6b9d;
+    --pink-dark: #e91e63;
+    --rose: #ff4081;
+    --blush: #fce4ec;
+    --cream: #fff5f7;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 40%, #f48fb1 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+/* === Floating Hearts === */
+.hearts-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -40px;
+    opacity: 0;
+    font-size: 1.4rem;
+    animation: rise linear infinite;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0;
+    }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.5; }
+    100% {
+        transform: translateY(-105vh) rotate(360deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* === Sections & Card === */
+.section {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 28px;
+    padding: 40px 44px 36px;
+    text-align: center;
+    box-shadow:
+        0 20px 60px rgba(233,30,99,0.18),
+        0 0 0 1px rgba(255,107,157,0.12);
+    max-width: 420px;
+    width: 100%;
+    animation: cardIn 0.5s ease-out both;
+}
+
+.card-success {
+    background: linear-gradient(160deg, rgba(255,255,255,0.96) 0%, rgba(252,228,236,0.92) 100%);
+    animation: popIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(24px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.4); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* === Bear Image === */
+.bear-container {
+    margin-bottom: 20px;
+}
+
+.bear-img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 18px;
+    animation: gentle-bounce 2.5s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* === Typography === */
+.title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--pink-dark);
+    margin-bottom: 28px;
+    line-height: 1.35;
+}
+
+.title-success {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    animation: pulse-text 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse-text {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.06); }
+}
+
+.sub-text {
+    font-size: 1.15rem;
+    color: #777;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+/* === Buttons === */
+.btn-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.btn-yes {
+    padding: 14px 38px;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+    color: #fff;
+    box-shadow: 0 6px 22px rgba(233,30,99,0.35);
+    /* will grow dynamically via JS */
+    transition: transform 0.3s ease, padding 0.3s ease, font-size 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-yes:hover {
+    box-shadow: 0 10px 32px rgba(233,30,99,0.5);
+    transform: scale(1.06);
+}
+
+.btn-no {
+    padding: 14px 38px;
+    background: linear-gradient(135deg, #cfd8dc 0%, #b0bec5 100%);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease, padding 0.2s ease, font-size 0.2s ease;
+}
+
+.btn-no:hover {
+    background: linear-gradient(135deg, #b0bec5 0%, #90a4ae 100%);
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+    .card {
+        padding: 28px 22px 24px;
+        border-radius: 22px;
+    }
+    .bear-img {
+        width: 140px;
+        height: 140px;
+    }
+    .title {
+        font-size: 1.35rem;
+    }
+    .btn {
+        font-size: 0.95rem;
+        padding: 12px 28px;
+    }
+}

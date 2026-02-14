@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Have a Question... 💕</title>
+    <meta name="description" content="A special Valentine's question just for you">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" aria-hidden="true"></div>
+
+    <!-- ===== ASK STATE ===== -->
+    <div id="ask-section" class="section">
+        <div class="card">
+            <div class="bear-container">
+                <img id="bear-img" src="assets/asking.png" alt="Cute bears" class="bear-img">
+            </div>
+            <h1 id="main-text" class="title">Will you be my Valentine? 💕</h1>
+            <div class="btn-row">
+                <button id="yes-btn" class="btn btn-yes" onclick="onYesClick()">Yes!</button>
+                <button id="no-btn" class="btn btn-no" onclick="onNoClick()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SUCCESS STATE ===== -->
+    <div id="yes-section" class="section" style="display:none;">
+        <div class="card card-success">
+            <div class="bear-container">
+                <img src="assets/happy.png" alt="Happy bears hugging" class="bear-img">
+            </div>
+            <h1 class="title title-success">Yayy! I knew it! 🥳💖</h1>
+            <p class="sub-text">You just made me the happiest person ever! 🥰</p>
+        </div>
+    </div>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
